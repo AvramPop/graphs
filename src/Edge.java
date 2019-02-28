@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Edge {
     public final int inNode;
     public final int outNode;
@@ -9,15 +11,27 @@ public class Edge {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(this.inNode, this.outNode);
     }
 
-    public boolean equals(Edge otherEdge) {
-        return this.inNode == otherEdge.inNode && this.outNode == otherEdge.outNode;
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof Edge)) {
+            return false;
+        }
+
+        Edge edge = (Edge) o;
+
+        return this.inNode == edge.inNode && this.outNode == edge.outNode;
+
+    }
+
+    public Edge copy() {
+        return new Edge(this.inNode, this.outNode);
     }
 
     @Override
     public String toString() {
-        return String.valueOf(inNode) + " " + String.valueOf(outNode);
+        return "Edge " + String.valueOf(inNode) + " to " + String.valueOf(outNode);
     }
 }
