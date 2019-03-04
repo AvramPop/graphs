@@ -1,7 +1,5 @@
 package graph;
 
-import org.eclipse.collections.impl.map.mutable.primitive.IntObjectHashMap;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,7 +20,6 @@ public class DirectedGraph {
     }
 
     public DirectedGraph copy() {
-        IntObjectHashMap mapTest = new IntObjectHashMap();
         Map<Integer, List<Integer>> inNodesMapCopy = copy((HashMap<Integer, List<Integer>>) this.inNodesMap);
         Map<Integer, List<Integer>> outNodesMapCopy = copy((HashMap<Integer, List<Integer>>) this.outNodesMap);
         return new DirectedGraph(inNodesMapCopy, outNodesMapCopy);
@@ -45,7 +42,7 @@ public class DirectedGraph {
         }
     }
 
-    private void parseLine(String line) {
+    protected void parseLine(String line) {
         addEdgeToMaps(getInNodeFromLine(line), getOutNodeFromLine(line));
     }
 
@@ -140,7 +137,7 @@ public class DirectedGraph {
         }
     }
 
-    public void removeEdge(Edge edge) { // 4 0
+    public void removeEdge(Edge edge) {
         if(!this.inNodesMap.get(edge.outNode).contains(edge.inNode) || !this.outNodesMap.get(edge.inNode).contains(edge.outNode)) {
             throw new NullPointerException();
         }
@@ -149,12 +146,16 @@ public class DirectedGraph {
             ArrayList<Integer> updatedInNodesList = new ArrayList<>(this.inNodesMap.get(edge.outNode));
             updatedInNodesList.remove((Integer) edge.inNode);
             this.inNodesMap.replace(edge.outNode, updatedInNodesList);
+        } else {
+            throw new NullPointerException();
         }
 
         if(this.outNodesMap.containsKey(edge.inNode)) {
             ArrayList<Integer> updatedOutNodesList = new ArrayList<>(this.outNodesMap.get(edge.inNode));
             updatedOutNodesList.remove((Integer) edge.outNode);
             this.outNodesMap.replace(edge.inNode, updatedOutNodesList);
+        } else {
+            throw new NullPointerException();
         }
     }
 

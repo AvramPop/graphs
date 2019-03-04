@@ -32,6 +32,10 @@ public class Edge {
         return new Edge(this.inNode, this.outNode);
     }
 
+    public boolean containsNode(int node) {
+        return inNode == node || outNode == node;
+    }
+
     @Override
     public String toString() {
         return "graph.Edge " + String.valueOf(inNode) + " to " + String.valueOf(outNode);

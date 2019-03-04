@@ -22,7 +22,8 @@ public class WeightedDirectedGraph extends DirectedGraph {
         this.weightsMap = new LinkedHashMap<>();
     }
 
-    private void parseLine(String line) {
+    @Override
+    protected void parseLine(String line) {
         addWightedEdgeForLine(getInNodeFromLine(line), getOutNodeFromLine(line), getWeightFromLine(line));
     }
 
@@ -56,11 +57,31 @@ public class WeightedDirectedGraph extends DirectedGraph {
         }
     }
 
+    public int getNumberOfEdges() {
+        return this.weightsMap.keySet().size();
+    }
+
     private Map<Edge, Integer> copy(Map<Edge, Integer> originalMap) {
         Map<Edge, Integer> copyMap = new LinkedHashMap<>();
         for(Map.Entry<Edge, Integer> entry : originalMap.entrySet()) {
             copyMap.put(entry.getKey().copy(), entry.getValue());
         }
         return copyMap;
+    }
+
+    @Override
+    public void removeEdge(Edge edge) {
+        super.removeEdge(edge);
+        if(this.weightsMap.containsKey(edge)) {
+            this.weightsMap.remove(edge);
+        } else {
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public void removeNode(int node) {
+        super.removeNode(node);
+        weightsMap.entrySet().removeIf(e -> e.getKey().containsNode(node));
     }
 }
