@@ -10,6 +10,9 @@ public class WeightedDirectedGraph extends DirectedGraph {
         this.weightsMap = weightsMap;
     }
 
+    /**
+     * Return a deep copy of current weighted directed graph.
+     */
     public WeightedDirectedGraph copy() {
         Map<Integer, List<Integer>> inNodesMapCopy = copy((HashMap<Integer, List<Integer>>) this.inNodesMap);
         Map<Integer, List<Integer>> outNodesMapCopy = copy((HashMap<Integer, List<Integer>>) this.outNodesMap);
@@ -41,6 +44,9 @@ public class WeightedDirectedGraph extends DirectedGraph {
         this.weightsMap.put(new Edge(inNodeFromFile, outNodeFromFile), weightFromFile);
     }
 
+    /**
+     * Get weight of existing edge.
+     */
     public int getWeight(Edge edge) {
         if(this.weightsMap.containsKey(edge)) {
             return this.weightsMap.get(edge);
@@ -49,6 +55,9 @@ public class WeightedDirectedGraph extends DirectedGraph {
         }
     }
 
+    /**
+     * Update weight of existing edge.
+     */
     public void updateWeight(Edge edge, int newWeight) {
         if(this.weightsMap.containsKey(edge)) {
             this.weightsMap.replace(edge, newWeight);
@@ -57,6 +66,7 @@ public class WeightedDirectedGraph extends DirectedGraph {
         }
     }
 
+    @Override
     public int getNumberOfEdges() {
         return this.weightsMap.keySet().size();
     }
@@ -80,8 +90,40 @@ public class WeightedDirectedGraph extends DirectedGraph {
     }
 
     @Override
-    public void removeNode(int node) {
+    public void removeNode(int node){
         super.removeNode(node);
         weightsMap.entrySet().removeIf(e -> e.getKey().containsNode(node));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString());
+        sb.append("Weights map\n");
+        for (Edge edge :
+                weightsMap.keySet()) {
+            sb.append(edge.inNode).append(" -> ").append(edge.outNode).append(": ").append(weightsMap.get(edge));
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    public void addEdge(Edge edge, int weight) throws DuplicateEdgeException{
+        if(this.inNodesMap.get(edge.outNode).contains(edge.inNode) || this.outNodesMap.get(edge.inNode).contains(edge.outNode)){
+            throw new DuplicateEdgeException();
+        }
+
+        if(this.inNodesMap.containsKey(edge.outNode)){
+            ArrayList<Integer> updatedInNodesList = new ArrayList<>(this.inNodesMap.get(edge.outNode));
+            updatedInNodesList.add(edge.inNode);
+            this.inNodesMap.replace(edge.outNode, updatedInNodesList);
+        }
+
+        if(this.outNodesMap.containsKey(edge.inNode)){
+            ArrayList<Integer> updatedOutNodesList = new ArrayList<>(this.outNodesMap.get(edge.inNode));
+            updatedOutNodesList.add(edge.outNode);
+            this.outNodesMap.replace(edge.inNode, updatedOutNodesList);
+        }
+
+        this.weightsMap.put(edge, weight);
     }
 }

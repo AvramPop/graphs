@@ -11,7 +11,7 @@ class WeightedDirectedGraphTest {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        graph.loadGraphFromFile(FileSystems.getDefault().getPath("/home/dani/Desktop/code/faculta/grafuri/src/graph2.in"));
+        graph.loadGraphFromFile(FileSystems.getDefault().getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graph2.in"));
     }
 
     @org.junit.jupiter.api.AfterEach
