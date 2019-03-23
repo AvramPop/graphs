@@ -4,26 +4,50 @@ import graph.Edge;
 import graph.WeightedDirectedGraph;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GraphGenerator {
     public DirectedGraph generateRandomDirectedGraph(int numberOfVertices, int numberOfEdges) throws DuplicateEdgeException {
         DirectedGraph graph = new DirectedGraph(getEmptyMapOfNodes(numberOfVertices), getEmptyMapOfNodes(numberOfVertices));
-        generateUnweightedEdges(graph, numberOfEdges);
+        generateUnweightedEdges(graph, numberOfVertices, numberOfEdges);
         return graph;
     }
 
-    private void generateUnweightedEdges(DirectedGraph graph, int numberOfEdges) throws DuplicateEdgeException {
+    public WeightedDirectedGraph generateRandomWeightedDirectedGraph(int numberOfVertices, int numberOfEdges, int minimumWeight, int maximumWeight) throws DuplicateEdgeException {
+        WeightedDirectedGraph weightedDirectedGraph = new WeightedDirectedGraph(getEmptyMapOfNodes(numberOfVertices), getEmptyMapOfNodes(numberOfVertices), new LinkedHashMap<>());
+        generateWeightedGraph(weightedDirectedGraph, numberOfVertices, numberOfEdges, minimumWeight, maximumWeight);
+        return weightedDirectedGraph;
+    }
+
+    private void generateWeightedGraph(WeightedDirectedGraph weightedDirectedGraph, int numberOfVertices, int numberOfEdges, int minimumWeight, int maximumWeight) throws DuplicateEdgeException{
+        ArrayList<Edge> pool = generatePoolOfVertices(numberOfVertices);
+        Random random = new Random();
+        int nextPick;
+        for(int i = 0; i < numberOfEdges; i++){
+            nextPick = random.nextInt(pool.size());
+            Edge pick = pool.get(nextPick);
+            weightedDirectedGraph.addEdge(pick, ThreadLocalRandom.current().nextInt(minimumWeight, maximumWeight + 1));
+            pool.remove(nextPick);
+        }
+    }
+
+    private ArrayList<Edge> generatePoolOfVertices(int numberOfVertices){
         ArrayList<Edge> pool = new ArrayList<>();
-        for(int i = 0; i < numberOfEdges; i++) {
-            for(int j = 0; j < numberOfEdges; j++) {
-                if(j != i) {
+        for(int i = 0; i < numberOfVertices; i++){
+            for(int j = 0; j < numberOfVertices; j++){
+                if(j != i){
                     pool.add(new Edge(i, j));
                 }
             }
         }
+        return pool;
+    }
+
+    private void generateUnweightedEdges(DirectedGraph graph, int numberOfVertices, int numberOfEdges) throws DuplicateEdgeException {
+        ArrayList<Edge> pool = generatePoolOfVertices(numberOfVertices);
         Random random = new Random();
         int nextPick;
-        for(int i = 0; i < numberOfEdges; i++) {
+        for(int i = 0; i < numberOfEdges; i++){
             nextPick = random.nextInt(pool.size());
             graph.addEdge(pool.get(nextPick));
             pool.remove(nextPick);
@@ -39,23 +63,5 @@ public class GraphGenerator {
         return tempMap;
     }
 
-    private Map<Edge, Integer> generateMapOfWeights(int numberOfNodes) {
-        Map<Edge, Integer> tempMap = new LinkedHashMap<>();
-        for(int i = 0; i < numberOfNodes; i++) {
-            //tempMap.put(i, i);
-        }
-        return tempMap;
-    }
 
-
-
-    public WeightedDirectedGraph generateRandomWeightedDirectedGraph(int numberOfVertices, int numberOfEdges) throws DuplicateEdgeException {
-        Map<Integer, List<Integer>> inNodesMap = getEmptyMapOfNodes(numberOfVertices);
-        Map<Integer, List<Integer>> outNodesMap = getEmptyMapOfNodes(numberOfVertices);
-        WeightedDirectedGraph weightedDirectedGraph = new WeightedDirectedGraph();
-        generateUnweightedEdges(weightedDirectedGraph, numberOfEdges);
-        //generateMapOfWeights()
-
-        return new WeightedDirectedGraph();
-    }
 }

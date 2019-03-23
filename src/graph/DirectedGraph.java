@@ -121,36 +121,52 @@ public class DirectedGraph {
         }
     }
 
-    public int getInDegreeOfNode(int node){
-        return this.inNodesMap.get(node).size();
+    public int getInDegreeOfNode(int node) throws NullPointerException{
+        if(this.inNodesMap.containsKey(node)){
+            return this.inNodesMap.get(node).size();
+        } else {
+            throw new NullPointerException("don't have that vertex");
+        }
     }
 
     public int getOutDegreeOfNode(int node){
-        return this.outNodesMap.get(node).size();
+        if(this.outNodesMap.containsKey(node)){
+            return this.outNodesMap.get(node).size();
+        } else {
+            throw new NullPointerException("don't have that vertex");
+        }
     }
 
     /**
      * Get Iterator over outbound edges of node.
      */
-    public Iterator getOutboundEdgesOfNodeIterator(int node){ // not O(1) because we have to create edges
-        List<Edge> outboundEdgesOfNode = new ArrayList<>();
-        for(Integer outNode :
-                this.outNodesMap.get(node)){
-            outboundEdgesOfNode.add(new Edge(node, outNode));
+    public Iterator getOutboundEdgesOfNodeIterator(int node) throws NullPointerException{
+        if(this.outNodesMap.containsKey(node)){
+            List<Edge> outboundEdgesOfNode = new ArrayList<>();
+            for(Integer outNode :
+                    this.outNodesMap.get(node)){
+                outboundEdgesOfNode.add(new Edge(node, outNode));
+            }
+            return outboundEdgesOfNode.iterator();
+        } else {
+            throw new NullPointerException("Node not found");
         }
-        return outboundEdgesOfNode.iterator();
     }
 
     /**
      * Get Iterator over inbound edges of node.
      */
-    public Iterator getInboundEdgesOfNodeIterator(int node){
-        List<Edge> inboundEdgesOfNode = new ArrayList<>();
-        for(Integer inNode :
-                this.inNodesMap.get(node)){
-            inboundEdgesOfNode.add(new Edge(inNode, node));
+    public Iterator getInboundEdgesOfNodeIterator(int node) throws NullPointerException{
+        if(this.inNodesMap.containsKey(node)){
+            List<Edge> inboundEdgesOfNode = new ArrayList<>();
+            for(Integer inNode :
+                    this.inNodesMap.get(node)){
+                inboundEdgesOfNode.add(new Edge(inNode, node));
+            }
+            return inboundEdgesOfNode.iterator();
+        } else {
+            throw new NullPointerException("Node not found");
         }
-        return inboundEdgesOfNode.iterator();
     }
 
     /**
@@ -244,8 +260,13 @@ public class DirectedGraph {
 
     }
 
-    public int getNumberOfEdges(){ //todo implement this
-        return 0;
+    public int getNumberOfEdges(){
+        int sum = 0;
+        for(Integer node :
+                this.inNodesMap.keySet()){
+            sum += this.inNodesMap.get(node).size();
+        }
+        return sum;
     }
 
     protected Map<Integer, List<Integer>> copy(HashMap<Integer, List<Integer>> originalMap){
