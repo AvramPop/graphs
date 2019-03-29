@@ -13,7 +13,7 @@ public class DirectedGraph {
     protected Map<Integer, List<Integer>> outNodesMap;
 
     /**
-     * Create directed graph from existing inNodesMap and outNodesMap.
+     * Create directed graph from existing nodesMap and outNodesMap.
      */
     public DirectedGraph(Map<Integer, List<Integer>> inNodesMap, Map<Integer, List<Integer>> outNodesMap){
         this.inNodesMap = inNodesMap;
@@ -129,7 +129,7 @@ public class DirectedGraph {
         }
     }
 
-    public int getOutDegreeOfNode(int node){
+    public int getOutDegreeOfNode(int node) throws NullPointerException{
         if(this.outNodesMap.containsKey(node)){
             return this.outNodesMap.get(node).size();
         } else {
