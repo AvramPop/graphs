@@ -90,6 +90,10 @@ public class UndirectedGraph {
         return getUndirectedGraph(startNode, visited, result, queue);
     }
 
+    public boolean hasEdge(Edge edge){
+        return nodesMap.get(edge.inNode).contains(edge.outNode) || nodesMap.get(edge.outNode).contains(edge.inNode);
+    }
+
     private UndirectedGraph getUndirectedGraph(int startNode, ArrayList<Boolean> visited, UndirectedGraph result, LinkedList<Integer> queue){
         int currentNode;
         queue.push(startNode);
@@ -102,6 +106,15 @@ public class UndirectedGraph {
                     visited.set(nextNode, true);
                     queue.add(nextNode);
                     result.addEdge(new Edge(currentNode, nextNode));
+                }
+            }
+        }
+        for(int inNode : result.nodesMap.keySet()){ // todo this adds the edges not present from the bfs
+            for(int outNode : result.nodesMap.keySet()){
+                if(inNode != outNode){
+                    if(hasEdge(new Edge(inNode, outNode)) && !result.hasEdge(new Edge(inNode, outNode))){
+                        result.addEdge(new Edge(inNode, outNode));
+                    }
                 }
             }
         }
