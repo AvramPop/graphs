@@ -1,7 +1,4 @@
-import graph.DuplicateEdgeException;
-import graph.Edge;
-import graph.NodeAlreadyExistingException;
-import graph.WeightedDirectedGraph;
+import graph.*;
 
 import java.util.Iterator;
 import java.util.Scanner;
@@ -30,6 +27,7 @@ public class Console {
             System.out.println("12 v - remove vertex v");
             System.out.println("13 - copy current graph");
             System.out.println("14 e w - update edge e to weight w");
+            System.out.println("15 v1 v2 - lowest cost walk between v1 and v2");
             System.out.println(">");
             String[] userInput = keyboard.nextLine().split(" ");
             if(userInput.length != 0) {
@@ -135,6 +133,13 @@ public class Console {
                         graph.updateWeight(new Edge(Integer.valueOf(userInput[1]), Integer.valueOf(userInput[2])), Integer.valueOf(userInput[3]));
                     } catch(Exception e){
                         System.out.println(e.getMessage());
+                    }
+                } else if (userInput[0].equals("15")) {
+                    System.out.println("lowest cost walk: ");
+                    try{
+                        System.out.println(graph.lowestCostWalk(Integer.valueOf(userInput[1]), Integer.valueOf(userInput[2])));
+                    } catch(NegativeCyclesException e){
+                        System.err.println("negative costs!");
                     }
                 } else {
                     System.out.println("wrong input");

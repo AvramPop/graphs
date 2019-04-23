@@ -1,5 +1,6 @@
 package graph;
 
+import java.security.InvalidParameterException;
 import java.util.*;
 
 public class WeightedDirectedGraph extends DirectedGraph {
@@ -125,5 +126,81 @@ public class WeightedDirectedGraph extends DirectedGraph {
         }
 
         this.weightsMap.put(edge, weight);
+    }
+
+    private double[][] weightedAdjacencyMatrix(){
+        double[][] weightedAdjacencyMatrix = new double[getNumberOfVertices()][getNumberOfVertices()];
+        for(int i = 0; i < getNumberOfVertices(); i++){
+            for(int j = 0; j < getNumberOfVertices(); j++){
+                if(hasEdgeBetween(i, j)){
+                    weightedAdjacencyMatrix[i][j] = getWeight(new Edge(i, j));
+                } else if(i == j){
+                    weightedAdjacencyMatrix[i][j] = 0;
+                } else {
+                    weightedAdjacencyMatrix[i][j] = Double.POSITIVE_INFINITY;
+                }
+            }
+        }
+        return weightedAdjacencyMatrix;
+    }
+
+    private double[][] shortestWalksMatrix(boolean print){
+        double[][] result = weightedAdjacencyMatrix();
+        for(int m = 2; m < getNumberOfVertices(); m++){
+            if(print){
+                result = multiplyMatrices(result, weightedAdjacencyMatrix(), true);
+            } else {
+                result = multiplyMatrices(result, weightedAdjacencyMatrix(), false);
+            }
+        }
+        return result;
+    }
+
+    public double lowestCostWalk(int node1, int node2) throws NegativeCyclesException{
+        int numberOfVertices = getNumberOfVertices();
+        if(node1 < numberOfVertices && node2 < numberOfVertices){
+            if(hasNegativeCycles()){
+                throw new NegativeCyclesException();
+            }
+            return shortestWalksMatrix(false)[node1][node2];
+        } else {
+            throw new InvalidParameterException();
+        }
+    }
+
+    private boolean hasNegativeCycles(){
+        int numberOfVertices = getNumberOfVertices();
+        for(int i = 0; i < numberOfVertices; i++) {
+            for(int j = 0; j < numberOfVertices; j++){
+                if(shortestWalksMatrix(false)[i][j] < 0) return true;
+            }
+        }
+        return false;
+    }
+
+//    public int[][] identityMatrix(int n){
+//        int[][] ID = new int[n][n];
+//        for(int i = 0; i < n; i++){
+//            for(int j = 0; j < n; j++){
+//                if(i == j) ID[i][j] = 0;
+//                else ID[i][j] = Integer.MAX_VALUE;
+//            }
+//        }
+//        return ID;
+//    }
+
+    private double[][] multiplyMatrices(double[][] matrix1, double[][] matrix2, boolean print){
+        double[][] product = new double[matrix1.length][matrix1.length];
+        for(int i = 0; i < matrix1.length; i++) {
+            for(int j = 0; j < matrix1.length; j++) {
+                product[i][j] = Double.POSITIVE_INFINITY;
+                for (int k = 0; k < matrix1.length; k++) {
+                    if(print) System.out.println("i: " + i + " j: " + j + " k:" + k + " Dij: " + product[i][j] + " Dik + Wkj: " + (matrix1[i][k] + matrix2[k][j]) + " min:" + Math.min(product[i][j], matrix1[i][k] + matrix2[k][j]));
+                    product[i][j] = Math.min(product[i][j], matrix1[i][k] + matrix2[k][j]);
+                }
+            }
+        }
+        if(print) System.out.println();
+        return product;
     }
 }
