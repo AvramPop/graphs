@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d47982f3-876d-4acb-a244-3843d91d1d15" name="Default Changelist" comment="created full project">
-      <change afterPath="$PROJECT_DIR$/data/graphForMultiplication" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graph/NegativeCyclesException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/graphForTopoSort" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graph/GraphHasCyclesException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/graphUndirected.in" beforeDir="false" afterPath="$PROJECT_DIR$/data/graphUndirected.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/graphForMultiplication" beforeDir="false" afterPath="$PROJECT_DIR$/data/graphForMultiplication" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/grafuri/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafuri/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/grafuri/graph/WeightedDirectedGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafuri/graph/WeightedDirectedGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/DirectedGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -56,20 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="143" column="18" lean-forward="true" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="32" column="53" lean-forward="true" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+            <state relative-caret-position="762">
+              <caret line="204" column="5" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,10 +66,81 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/graphForMultiplication">
+        <entry file="file://$PROJECT_DIR$/src/graph/DirectedGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3382">
+              <caret line="262" column="61" selection-start-line="262" selection-start-column="61" selection-end-line="262" selection-end-column="61" />
+              <folding>
+                <element signature="docComment;class#DirectedGraph#0" />
+                <element signature="docComment;method#copy#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#loadGraphFromFile#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#getNumberOfVertices#0;class#DirectedGraph#0" />
+                <element signature="n#!!block;n#getNumberOfVertices#0;n#DirectedGraph#0" />
+                <element signature="docComment;method#getSetOfVerticesIterator#0;class#DirectedGraph#0" />
+                <element signature="n#!!block;n#getSetOfVerticesIterator#0;n#DirectedGraph#0" />
+                <element signature="docComment;method#hasEdgeBetween#0;class#DirectedGraph#0" />
+                <element signature="n#!!block;n#hasEdgeBetween#0;n#DirectedGraph#0" />
+                <element signature="docComment;method#getEdgeBetween#0;class#DirectedGraph#0" />
+                <element signature="method#getEdgeBetween#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#getOutboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
+                <element signature="method#getOutboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#getInboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#addEdge#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#removeEdge#0;class#DirectedGraph#0" />
+                <element signature="method#addNode#0;class#DirectedGraph#0" />
+                <element signature="docComment;method#removeNode#0;class#DirectedGraph#0" />
+                <element signature="method#removeNode#0;class#DirectedGraph#0" />
+                <element signature="method#getNumberOfEdges#0;class#DirectedGraph#0" />
+                <element signature="method#copy#1;class#DirectedGraph#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graph/Edge.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graph/GraphHasCyclesException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graph/NegativeCyclesException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="35" column="111" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="111" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/graphForTopoSort">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -147,13 +206,15 @@
         <option value="$PROJECT_DIR$/data/graph.in" />
         <option value="$PROJECT_DIR$/src/GraphGenerator.java" />
         <option value="$PROJECT_DIR$/src/graph/UndirectedGraph.java" />
-        <option value="$PROJECT_DIR$/src/graph/DirectedGraph.java" />
         <option value="$PROJECT_DIR$/data/graphUndirected.in" />
         <option value="$PROJECT_DIR$/src/graph/NegativeCyclesException.java" />
         <option value="$PROJECT_DIR$/src/Console.java" />
         <option value="$PROJECT_DIR$/data/graphForMultiplication" />
         <option value="$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java" />
+        <option value="$PROJECT_DIR$/src/graph/GraphHasCyclesException.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/graph/DirectedGraph.java" />
+        <option value="$PROJECT_DIR$/data/graphForTopoSort" />
       </list>
     </option>
   </component>
@@ -164,9 +225,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="10" />
-    <option name="width" value="672" />
-    <option name="height" value="765" />
+    <option name="y" value="-1" />
+    <option name="width" value="662" />
+    <option name="height" value="763" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -224,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,7 +313,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -397,7 +458,9 @@
       <workItem from="1554793621312" duration="7897000" />
       <workItem from="1555571597349" duration="59000" />
       <workItem from="1555571785718" duration="3494000" />
-      <workItem from="1556001685978" duration="3855000" />
+      <workItem from="1556001685978" duration="4046000" />
+      <workItem from="1556089575319" duration="1795000" />
+      <workItem from="1556792032917" duration="3219000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1551303433201</created>
@@ -442,7 +505,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91263000" />
+    <option name="totallyTimeSpent" value="96468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,10 +517,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="10" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49746192" visible="true" weight="0.15421557" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49746192" visible="true" weight="0.112059765" />
       <window_info id="Structure" order="1" sideWeight="0.5025381" side_tool="true" weight="0.15955175" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -466,14 +529,14 @@
       <window_info id="Favorites" order="6" sideWeight="0.5015528" side_tool="true" weight="0.18030304" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32919255" />
-      <window_info anchor="bottom" x="1366" y="2" width="1029" height="1072" id="Run" order="2" weight="0.87761503" />
+      <window_info active="true" anchor="bottom" x="1366" y="2" width="1029" height="1072" id="Run" order="2" visible="true" weight="0.67050207" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43933055" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32919255" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3782946" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.37674418" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32919255" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32845187" />
       <window_info anchor="bottom" id="Duplicate detector" order="12" weight="0.3294979" />
@@ -652,13 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/graph1m.txt">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="144">
@@ -713,10 +769,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/graphUndirected.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Console.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/NegativeCyclesException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/GraphHasCyclesException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="762">
+          <caret line="204" column="5" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/graphForMultiplication">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../../sources/java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graph/DirectedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="287" column="45" selection-start-line="287" selection-start-column="45" selection-end-line="287" selection-end-column="45" />
+        <state relative-caret-position="3382">
+          <caret line="262" column="61" selection-start-line="262" selection-start-column="61" selection-end-line="262" selection-end-column="61" />
           <folding>
             <element signature="docComment;class#DirectedGraph#0" />
             <element signature="docComment;method#copy#0;class#DirectedGraph#0" />
@@ -732,7 +850,6 @@
             <element signature="docComment;method#getOutboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
             <element signature="method#getOutboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
             <element signature="docComment;method#getInboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
-            <element signature="method#getInboundEdgesOfNodeIterator#0;class#DirectedGraph#0" />
             <element signature="docComment;method#addEdge#0;class#DirectedGraph#0" />
             <element signature="docComment;method#removeEdge#0;class#DirectedGraph#0" />
             <element signature="method#addNode#0;class#DirectedGraph#0" />
@@ -744,54 +861,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/graphUndirected.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/NegativeCyclesException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Console.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/graphForMultiplication">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="143" column="18" lean-forward="true" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="32" column="53" lean-forward="true" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        <state relative-caret-position="384">
+          <caret line="35" column="111" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="111" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/graphForTopoSort">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>

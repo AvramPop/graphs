@@ -144,7 +144,7 @@ public class WeightedDirectedGraph extends DirectedGraph {
         return weightedAdjacencyMatrix;
     }
 
-    private double[][] shortestWalksMatrix(boolean print){
+    public double[][] shortestWalksMatrix(boolean print){
         double[][] result = weightedAdjacencyMatrix();
         for(int m = 2; m < getNumberOfVertices(); m++){
             if(print){

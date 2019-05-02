@@ -232,6 +232,45 @@ public class DirectedGraph {
         }
     }
 
+    public List<Integer> topologicalSortList() throws GraphHasCyclesException{
+        List<Integer> sorted = new LinkedList<>();
+        Set<Integer> fullyProcessed = new HashSet<>();
+        Set<Integer> inProcess = new HashSet<>();
+        Iterator nodesIterator = getSetOfVerticesIterator();
+        Integer currentNode;
+        boolean ok;
+        while(nodesIterator.hasNext()){
+            currentNode = (Integer) nodesIterator.next();
+            if(!fullyProcessed.contains(currentNode)){
+                ok = topoSortDFS(currentNode, sorted, fullyProcessed, inProcess);
+                if(!ok){
+                    throw new GraphHasCyclesException();
+                }
+            }
+        }
+        return sorted;
+    }
+
+    private boolean topoSortDFS(Integer currentNode, List<Integer> sorted, Set<Integer> fullyProcessed, Set<Integer> inProcess){
+        inProcess.add(currentNode);
+        Iterator inNodesOfCurrentNode = getInboundEdgesOfNodeIterator(currentNode);
+        Integer currentInNode = -1;
+        boolean ok;
+        while(inNodesOfCurrentNode.hasNext()){
+            currentInNode = ((Edge) inNodesOfCurrentNode.next()).inNode;
+            if(inProcess.contains(currentInNode)){
+                return false;
+            } else if(!fullyProcessed.contains(currentInNode)) {
+                ok = topoSortDFS(currentInNode, sorted, fullyProcessed, inProcess);
+                if(!ok) return false;
+            }
+        }
+        inProcess.remove(currentNode);
+        sorted.add(currentNode);
+        fullyProcessed.add(currentNode);
+        return true;
+    }
+
     /**
      * Remove node from graph and corresponding edges.
      */

@@ -1,8 +1,10 @@
+import graph.DirectedGraph;
 import graph.DuplicateEdgeException;
-import graph.WeightedDirectedGraph;
+import graph.GraphHasCyclesException;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.List;
 
 public class Main {
 
@@ -27,11 +29,21 @@ public class Main {
 //        UndirectedGraph graph = new UndirectedGraph(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graph100k.txt"));
 //        System.out.println("Number of subgraphs:" + graph.numberOfSubgraphs());
 //        graph.subgraphs().forEach(subgraph -> System.out.println(subgraph.toString()));
-        WeightedDirectedGraph graph = new WeightedDirectedGraph();
-        graph.loadGraphFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graphForMultiplication"));
+//        WeightedDirectedGraph graph = new WeightedDirectedGraph();
+//        graph.loadGraphFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graphForMultiplication"));
+//        System.out.println(graph.toString());
+//        printMatrix(graph.shortestWalksMatrix(false));
+        DirectedGraph graph = new DirectedGraph();
+        graph.loadGraphFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graph1k.txt"));
         System.out.println(graph.toString());
-        Console console = new Console(graph);
-        console.run();
+        try{
+            List<Integer> result = graph.topologicalSortList();
+            result.forEach(System.out::println);
+        } catch(GraphHasCyclesException e){
+            System.err.println("we have cycles!");
+        }
+//        Console console = new Console((WeightedDirectedGraph) graph);
+//        console.run();
     }
 
     private static Path getPath(String path){
