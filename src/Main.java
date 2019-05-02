@@ -1,4 +1,4 @@
-import graph.DirectedGraph;
+import graph.ActivitiesGraph;
 import graph.DuplicateEdgeException;
 import graph.GraphHasCyclesException;
 
@@ -33,17 +33,25 @@ public class Main {
 //        graph.loadGraphFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graphForMultiplication"));
 //        System.out.println(graph.toString());
 //        printMatrix(graph.shortestWalksMatrix(false));
-        DirectedGraph graph = new DirectedGraph();
-        graph.loadGraphFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graph1k.txt"));
+//        DirectedGraph graph = new DirectedGraph();
+//        graph.loadGraphFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/graph1k.txt"));
+//        System.out.println(graph.toString());
+//        try{
+//            List<Integer> result = graph.topologicalSortList();
+//            result.forEach(System.out::println);
+//        } catch(GraphHasCyclesException e){
+//            System.err.println("we have cycles!");
+//        }
+//        Console console = new Console((WeightedDirectedGraph) graph);
+//        console.run();
+        ActivitiesGraph graph = new ActivitiesGraph(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/activitiesGraph.txt"));
         System.out.println(graph.toString());
         try{
-            List<Integer> result = graph.topologicalSortList();
+            List<ActivitiesGraph.Node> result = graph.topologicalSortList();
             result.forEach(System.out::println);
         } catch(GraphHasCyclesException e){
             System.err.println("we have cycles!");
         }
-//        Console console = new Console((WeightedDirectedGraph) graph);
-//        console.run();
     }
 
     private static Path getPath(String path){

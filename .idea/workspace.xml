@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d47982f3-876d-4acb-a244-3843d91d1d15" name="Default Changelist" comment="created full project">
-      <change afterPath="$PROJECT_DIR$/data/graphForTopoSort" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graph/GraphHasCyclesException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/activitiesGraph.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graph/ActivitiesGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/graphForMultiplication" beforeDir="false" afterPath="$PROJECT_DIR$/data/graphForMultiplication" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/grafuri/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafuri/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/grafuri/graph/WeightedDirectedGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafuri/graph/WeightedDirectedGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/DirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,11 +60,30 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/graph/ActivitiesGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#Node#0;class#ActivitiesGraph#0" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#558#559#0" expanded="true" />
+                <element signature="e#873#874#0" expanded="true" />
+                <element signature="e#922#923#0" expanded="true" />
+                <element signature="e#3441#3442#0" expanded="true" />
+                <element signature="e#3499#3500#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graph/DirectedGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3382">
-              <caret line="262" column="61" selection-start-line="262" selection-start-column="61" selection-end-line="262" selection-end-column="61" />
+            <state relative-caret-position="354">
+              <caret line="234" selection-start-line="234" selection-end-line="271" selection-end-column="5" />
               <folding>
                 <element signature="docComment;class#DirectedGraph#0" />
                 <element signature="docComment;method#copy#0;class#DirectedGraph#0" />
@@ -77,7 +91,8 @@
                 <element signature="docComment;method#getNumberOfVertices#0;class#DirectedGraph#0" />
                 <element signature="n#!!block;n#getNumberOfVertices#0;n#DirectedGraph#0" />
                 <element signature="docComment;method#getSetOfVerticesIterator#0;class#DirectedGraph#0" />
-                <element signature="n#!!block;n#getSetOfVerticesIterator#0;n#DirectedGraph#0" />
+                <element signature="e#3237#3238#0" expanded="true" />
+                <element signature="e#3295#3296#0" expanded="true" />
                 <element signature="docComment;method#hasEdgeBetween#0;class#DirectedGraph#0" />
                 <element signature="n#!!block;n#hasEdgeBetween#0;n#DirectedGraph#0" />
                 <element signature="docComment;method#getEdgeBetween#0;class#DirectedGraph#0" />
@@ -93,6 +108,15 @@
                 <element signature="method#getNumberOfEdges#0;class#DirectedGraph#0" />
                 <element signature="method#copy#1;class#DirectedGraph#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/activitiesGraph.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -127,16 +151,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="35" column="111" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="111" />
+            <state relative-caret-position="420">
+              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2872#2873#0" expanded="true" />
+                <element signature="e#2933#2934#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/graphForTopoSort">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
@@ -176,9 +202,12 @@
       <find>nodesMap</find>
       <find>addEd</find>
       <find>double</find>
+      <find>Integer</find>
+      <find>Linked</find>
     </findStrings>
     <replaceStrings>
       <replace>int</replace>
+      <replace>T</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -212,9 +241,11 @@
         <option value="$PROJECT_DIR$/data/graphForMultiplication" />
         <option value="$PROJECT_DIR$/src/graph/WeightedDirectedGraph.java" />
         <option value="$PROJECT_DIR$/src/graph/GraphHasCyclesException.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/graph/DirectedGraph.java" />
         <option value="$PROJECT_DIR$/data/graphForTopoSort" />
+        <option value="$PROJECT_DIR$/src/graph/DirectedGraph.java" />
+        <option value="$PROJECT_DIR$/data/activitiesGraph.txt" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/graph/ActivitiesGraph.java" />
       </list>
     </option>
   </component>
@@ -460,7 +491,7 @@
       <workItem from="1555571785718" duration="3494000" />
       <workItem from="1556001685978" duration="4046000" />
       <workItem from="1556089575319" duration="1795000" />
-      <workItem from="1556792032917" duration="3219000" />
+      <workItem from="1556792032917" duration="8104000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1551303433201</created>
@@ -505,7 +536,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96468000" />
+    <option name="totallyTimeSpent" value="101353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -536,7 +567,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32919255" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.37674418" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.37656903" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32919255" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32845187" />
       <window_info anchor="bottom" id="Duplicate detector" order="12" weight="0.3294979" />
@@ -817,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../../../sources/java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -831,10 +855,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/graphForTopoSort">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../../sources/java/jdk1.8.0_181/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/activitiesGraph.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graph/DirectedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3382">
-          <caret line="262" column="61" selection-start-line="262" selection-start-column="61" selection-end-line="262" selection-end-column="61" />
+        <state relative-caret-position="354">
+          <caret line="234" selection-start-line="234" selection-end-line="271" selection-end-column="5" />
           <folding>
             <element signature="docComment;class#DirectedGraph#0" />
             <element signature="docComment;method#copy#0;class#DirectedGraph#0" />
@@ -842,7 +894,8 @@
             <element signature="docComment;method#getNumberOfVertices#0;class#DirectedGraph#0" />
             <element signature="n#!!block;n#getNumberOfVertices#0;n#DirectedGraph#0" />
             <element signature="docComment;method#getSetOfVerticesIterator#0;class#DirectedGraph#0" />
-            <element signature="n#!!block;n#getSetOfVerticesIterator#0;n#DirectedGraph#0" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3295#3296#0" expanded="true" />
             <element signature="docComment;method#hasEdgeBetween#0;class#DirectedGraph#0" />
             <element signature="n#!!block;n#hasEdgeBetween#0;n#DirectedGraph#0" />
             <element signature="docComment;method#getEdgeBetween#0;class#DirectedGraph#0" />
@@ -863,18 +916,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="35" column="111" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="111" />
+        <state relative-caret-position="420">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="e#2933#2934#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/graphForTopoSort">
+    <entry file="file://$PROJECT_DIR$/src/graph/ActivitiesGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="196">
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Node#0;class#ActivitiesGraph#0" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#3441#3442#0" expanded="true" />
+            <element signature="e#3499#3500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
