@@ -52,6 +52,20 @@ public class Main {
         } catch(GraphHasCyclesException e){
             System.err.println("we have cycles!");
         }
+
+        try{
+            graph.generateOrdering();
+        } catch(GraphHasCyclesException e){
+            System.err.println("we have cycles!");
+        }
+        System.out.println(graph.toString());
+        System.out.println("Total time: " + graph.getNodesList().get(graph.getNodesList().size() - 1).getLatestStartingTime());
+        System.out.print("Critical activities: ");
+        for(ActivitiesGraph.Node node : graph.getNodesList()){
+            if(node.getLatestFinishTime() == node.getEarliestFinishTime()){
+                System.out.print(node.getName() + ", ");
+            }
+        }
     }
 
     private static Path getPath(String path){
