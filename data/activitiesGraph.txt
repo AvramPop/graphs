@@ -1,4 +1,4 @@
-7 7
+7 9
 A 2
 B 3
 C 5
@@ -12,4 +12,6 @@ A E
 C F
 D F
 E F
+G F
+F C
 C G

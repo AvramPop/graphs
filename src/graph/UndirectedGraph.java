@@ -7,13 +7,17 @@ import java.util.*;
 
 public class UndirectedGraph {
     private Map<Integer, List<Integer>> nodesMap;
+    public int[][] adjacencyMatrix;
+    public int nodesNumber;
 
-    public UndirectedGraph(Map<Integer, List<Integer>> nodesMap){
+    public UndirectedGraph(Map<Integer, List<Integer>> nodesMap, int[][] adjacencyMatrix){
         this.nodesMap = nodesMap;
+        this.adjacencyMatrix = adjacencyMatrix;
     }
 
     public UndirectedGraph(){
         this.nodesMap = new LinkedHashMap<>();
+        this.adjacencyMatrix = new int[50][50];
     }
 
     public UndirectedGraph(Path filePath){
@@ -35,6 +39,46 @@ public class UndirectedGraph {
             Files.lines(filePath).skip(1).forEach(this::parseLine);
         } catch(IOException e){
             System.out.println("Error while reading");
+        }
+    }
+
+    public void loadWeightedFromFile(Path filePath){
+        String firstLine = "";
+        try{
+            firstLine = Files.lines(filePath).findFirst().get();
+        } catch(IOException e){
+            System.err.println("Error while reading");
+        }
+        String[] lineSplit = firstLine.split(" ");
+        int numberOfNodes = Integer.valueOf(lineSplit[0]);
+        nodesNumber = numberOfNodes;
+        fillAdjacencyMatrix(numberOfNodes);
+        try{
+            Files.lines(filePath).skip(1).forEach(this::parseLineToAdjacencyMatrix);
+        } catch(IOException e){
+            System.out.println("Error while reading");
+        }
+    }
+
+    private void parseLineToAdjacencyMatrix(String line){
+        addEdgeToAdjacencyMatrix(getInNodeFromLine(line), getOutNodeFromLine(line), getCostFromLine(line));
+    }
+
+    private void addEdgeToAdjacencyMatrix(int inNodeFromLine, int outNodeFromLine, int costFromLine){
+        adjacencyMatrix[inNodeFromLine][outNodeFromLine] = costFromLine;
+        adjacencyMatrix[outNodeFromLine][inNodeFromLine] = costFromLine;
+    }
+
+    private int getCostFromLine(String line){
+        String[] lineSplit = line.split(" ");
+        return Integer.valueOf(lineSplit[2]);
+    }
+
+    private void fillAdjacencyMatrix(int numberOfNodes){
+        for(int i = 0; i < numberOfNodes; i++){
+            for(int j = 0; j < numberOfNodes; j++){
+                adjacencyMatrix[i][j] = 0;
+            }
         }
     }
 
@@ -140,6 +184,81 @@ public class UndirectedGraph {
         String[] lineSplit = line.split(" ");
         return Integer.valueOf(lineSplit[1]);
     }
+
+    private int minKey(int key[], Boolean mstSet[]){
+        int min = Integer.MAX_VALUE, minimumIndex = -1;
+        for (int node = 0; node < nodesNumber; node++){
+            if(!mstSet[node] && key[node] < min){
+                min = key[node];
+                minimumIndex = node;
+            }
+        }
+        return minimumIndex;
+    }
+
+    public int[] getMinimumSpanningTree(){
+        int[] builtMST = new int[nodesNumber];
+        int[] key = new int [nodesNumber];
+        Boolean[] includedSet = new Boolean[nodesNumber];
+        for (int i = 0; i < nodesNumber; i++){
+            key[i] = Integer.MAX_VALUE;
+            includedSet[i] = false;
+        }
+        key[0] = 0;
+        builtMST[0] = -1;
+        for (int count = 0; count < nodesNumber - 1; count++){
+            int currentNode = minKey(key, includedSet);
+            System.out.println(currentNode);
+            includedSet[currentNode] = true;
+            for (int temporaryNode = 0; temporaryNode < nodesNumber; temporaryNode++)
+                if (adjacencyMatrix[currentNode][temporaryNode] != 0 && !includedSet[temporaryNode] && adjacencyMatrix[currentNode][temporaryNode] < key[temporaryNode]){
+                    builtMST[temporaryNode] = currentNode;
+                    key[temporaryNode] = adjacencyMatrix[currentNode][temporaryNode];
+                }
+        }
+        return builtMST;
+    }
+
+    public List<Integer> hamiltonianCycle(){
+        List<Integer> solution = new ArrayList<>();
+        traverse(0, solution);
+        solution.add(0);
+        return solution;
+    }
+
+    private void traverse(int node, List<Integer> solution){
+        solution.add(node);
+        for(int child : getChildren(node)){
+            if(!solution.contains(child)){
+                traverse(child, solution);
+            }
+        }
+    }
+
+    private List<Integer> getChildren(int node){
+        List<Integer> result = new ArrayList<>();
+        int[][] adjacencyOfMST = adjacencyMTS();
+        for(int i = 0; i < nodesNumber; i++){
+            if(adjacencyOfMST[node][i] != 0) result.add(i);
+        }
+        return result;
+    }
+
+    public int[][] adjacencyMTS(){
+        int[][] result = new int[nodesNumber][nodesNumber];
+        for(int i = 0; i < nodesNumber; i++){
+            for(int j = 0; j < nodesNumber; j++){
+                result[i][j] = 0;
+            }
+        }
+        for(int i = 1; i < nodesNumber; i++){
+            result[getMinimumSpanningTree()[i]][i] = adjacencyMatrix[i][getMinimumSpanningTree()[i]];
+            result[i][getMinimumSpanningTree()[i]] = adjacencyMatrix[i][getMinimumSpanningTree()[i]];
+           // System.out.println(getMinimumSpanningTree()[i] + " - " + i + "\t" + adjacencyMatrix[i][getMinimumSpanningTree()[i]]);
+        }
+        return result;
+    }
+
 
     @Override
     public String toString(){

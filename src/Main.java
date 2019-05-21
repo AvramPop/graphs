@@ -1,10 +1,8 @@
-import graph.ActivitiesGraph;
 import graph.DuplicateEdgeException;
-import graph.GraphHasCyclesException;
+import graph.UndirectedGraph;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.util.List;
 
 public class Main {
 
@@ -44,28 +42,34 @@ public class Main {
 //        }
 //        Console console = new Console((WeightedDirectedGraph) graph);
 //        console.run();
-        ActivitiesGraph graph = new ActivitiesGraph(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/activitiesGraph.txt"));
-        System.out.println(graph.toString());
-        try{
-            List<ActivitiesGraph.Node> result = graph.topologicalSortList();
-            result.forEach(System.out::println);
-        } catch(GraphHasCyclesException e){
-            System.err.println("we have cycles!");
-        }
+//        System.out.println("sorting");
+//        ActivitiesGraph graph = new ActivitiesGraph(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/activitiesGraph.txt"));
+//        System.out.println(graph.toString());
+//        try{
+//            List<ActivitiesGraph.Node> result = graph.topologicalSortList();
+//            result.forEach(System.out::println);
+//        } catch(GraphHasCyclesException e){
+//            System.err.println("we have cycles!");
+//        }
+//
+//        try{
+//            graph.generateOrdering();
+//            System.out.println(graph.toString());
+//            System.out.println("Total time: " + graph.getNodesList().get(graph.getNodesList().size() - 1).getLatestStartingTime());
+//            System.out.print("Critical activities: ");
+//            for(ActivitiesGraph.Node node : graph.getNodesList()){
+//                if(node.getLatestFinishTime() == node.getEarliestFinishTime()){
+//                    System.out.print(node.getName() + ", ");
+//                }
+//            }
+//        } catch(GraphHasCyclesException e){
+//            System.err.println("we have cycles!");
+//        }
 
-        try{
-            graph.generateOrdering();
-        } catch(GraphHasCyclesException e){
-            System.err.println("we have cycles!");
-        }
-        System.out.println(graph.toString());
-        System.out.println("Total time: " + graph.getNodesList().get(graph.getNodesList().size() - 1).getLatestStartingTime());
-        System.out.print("Critical activities: ");
-        for(ActivitiesGraph.Node node : graph.getNodesList()){
-            if(node.getLatestFinishTime() == node.getEarliestFinishTime()){
-                System.out.print(node.getName() + ", ");
-            }
-        }
+        UndirectedGraph graph = new UndirectedGraph();
+        graph.loadWeightedFromFile(getPath("/home/dani/Desktop/code/faculta/an1/sem2/grafuri/data/weightedUndirected.txt"));
+       // System.out.println(graph.hamiltonianCycle());
+        graph.getMinimumSpanningTree();
     }
 
     private static Path getPath(String path){
